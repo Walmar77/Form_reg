@@ -1,4 +1,5 @@
 <?php
+ini_set('error_reporting', ALL);
 
 include_once 'bd_conn.php';
 
@@ -11,8 +12,12 @@ if(isset($_POST['submit'])) {
 						INSERT INTO client(name, email) 
 						VALUES ('$name', '$email')
 						");
-
-mysql_close();
-
-echo "Successfully added!";
 }
+
+$result2 = mysql_query(" SELECT email FROM client WHERE email = '$email' ");
+$myrow = mysql_fetch_array($result2);
+
+if($myrow['email'] == $email) {
+	echo "Error";
+}
+
