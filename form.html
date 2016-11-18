@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+<head>
+	<title>Form registration</title>
+	<meta charset='utf-8'>
+	<link rel='stylesheet' href='css/chosen.css' type='text/css'>
+	<script src='js/jquery-3.1.1.min.js' type='text/javascript'></script>
+	<script src='js/jquery.validate.min.js' type='text/javascript'></script>
+	<script src='js/chosen.jquery.min.js' type='text/javascript'></script>
+	<script src='js/myscripts.js' type='text/javascript'></script>
+</head>
+<body>
+	<style>
+		.error{
+			color: red;
+		}
+	</style>
+	<div>
+		<h3>Log in</h3>
+		<form action='receive.php' method='POST' id='form'>
+			<p><input type='text' name='name' id='name'></p>
+			<p><input type='text' name='email' id='email'></p>
+			<p>
+				<select class='chzn-select' style='width:160px;'>
+			</p>
+					<option>Днепропетровская</option>
+					<option selected='selected'>Харьковская</option>
+					<option>Львовская</option>
+					<option>Полтавская</option>
+					<option>Киевская</option>
+					<option>Ужгородская</option>
+				</select>
+			<p>
+				<select class='chzn-select' multiple='true' style='width:160px;' data-placeholder='Укажите город'>
+			</p>
+					<option>Днепр</option>
+					<option>Харьков</option>
+					<option>Львов</option>
+					<option>Полтава</option>
+					<option>Киев</option>
+					<option>Ужгород</option>
+				</select>
+				<p>
+				<select class='chzn-select' multiple='true' style='width:160px;' data-placeholder='Укажите район'>
+			</p>
+					<option>Октябрьский</option>
+					<option>Ленинский</option>
+					<option>Червонозаводской</option>
+					<option>Комминтерновский</option>
+					<option>Чугуевский</option>
+					<option>Харьковский</option>
+					<option>Киевский</option>
+				</select>
+			<p>
+				<button type='submit' name='submit' value='Send'>Send</button>
+			</p>
+			 <script>
+   				$('.chzn-select').chosen();
+  			</script>
+		</form>
+	</div>
+</body>
+</html>
