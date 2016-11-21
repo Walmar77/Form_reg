@@ -1,23 +1,26 @@
 <?php
-ini_set('error_reporting', ALL);
+ini_set('error_reporting', E_ALL);
+ 
+required_once 'bd_conn.php'; 
 
-include_once 'bd_conn.php';
+if($_POST['check'] == 'name') {
+	$name = mysql_real_escape_string(trim($_POST['data']));
+	$query = "SELECT name FROM client WHERE name = '$name' LIMIT 1";
+	$res = mysql_query($query) or die(mysql_error());
+	if(mysql_num_rows($res)) {
+		echo 'no';
+	} else {
+		echo 'yes';
+	}
+} 
 
-$name = strip_tags(trim($_POST['name']));
-$email = strip_tags(trim($_POST['email']));
-
-
-if(isset($_POST['submit'])) {
-	$result = mysql_query(" 
-						INSERT INTO client(name, email) 
-						VALUES ('$name', '$email')
-						");
+if($_POST['check'] == 'email') {
+	$email = mysql_real_escape_string(trim($_POST['data']));
+	$query = "SELECT email FROM client WHERE email = '$email' LIMIT 1";
+	$res = mysql_query($query) or die(mysql_error());
+	if(mysql_num_rows($res)) {
+		echo 'no';
+	} else {
+		echo 'yes';
+	}
 }
-
-$result2 = mysql_query(" SELECT email FROM client WHERE email = '$email' ");
-$myrow = mysql_fetch_array($result2);
-
-if($myrow['email'] == $email) {
-	echo "Error";
-}
-
