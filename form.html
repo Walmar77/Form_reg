@@ -45,37 +45,6 @@
 		$(document).ready(function() {
 			check('#name');
 			check('#email');
-			/*
-			$('#name').focus(function() {
-				$('#name').removeClass().next().empty();
-			});
-			$('#name').blur(function() {
-				var data = $('#name').val();
-				if(data != '') {
-					$.ajax({
-						url: 'receive.php',
-						type: 'POST',
-						data: {name: data},
-						success: function(res) {
-							if(res == 'yes') {
-								$('#name').removeClass().addClass('ok');
-								$('#name').next().text('Годится!');
-							} elseif(res == 'no') {
-								$('#name').next().text('Не годится!');
-								$('#name').removeClass().addClass('error');
-							}
-							
-						},
-						error: function() {
-							$('#name').next().text('Ошибка!');
-						}
-					});
-				} else {
-					$('#name').removeClass().addClass('error');
-					$('#name').next().text('Заполните поле!');
-				}
-			});
-*/
 		});
    		$('.chzn-select').chosen();
   	</script>
