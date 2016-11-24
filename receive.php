@@ -1,26 +1,26 @@
 <?php
-ini_set('error_reporting', E_ALL);
- 
-required_once 'bd_conn.php'; 
+error_reporting (E_ALL);
 
-if($_POST['check'] == 'name') {
-	$name = mysql_real_escape_string(trim($_POST['data']));
-	$query = "SELECT name FROM client WHERE name = '$name' LIMIT 1";
-	$res = mysql_query($query) or die(mysql_error());
-	if(mysql_num_rows($res)) {
-		echo 'no';
-	} else {
-		echo 'yes';
-	}
-} 
+include 'db.php';
 
-if($_POST['check'] == 'email') {
-	$email = mysql_real_escape_string(trim($_POST['data']));
-	$query = "SELECT email FROM client WHERE email = '$email' LIMIT 1";
-	$res = mysql_query($query) or die(mysql_error());
-	if(mysql_num_rows($res)) {
-		echo 'no';
-	} else {
-		echo 'yes';
+if(isset($_POST['submit'])) {
+	$name = strip_tags(trim($_POST['name']));
+	$email = strip_tags(trim($_POST['email']));
+
+	$query = mysqli_query($dbhandle, "SELECT * FROM client WHERE email = '$email'");
+	$result = mysqli_fetch_array($query);
+
+		if($result['email'] == $email) {
+			echo $result['name'] . "E-mail:" . $result['email'];
 	}
+	
 }
+
+if(isset($_POST['submit'])) {
+	$name = strip_tags(trim($_POST['name']));
+	$email = strip_tags(trim($_POST['email']));
+
+	$sql = mysqli_query($dbhandle, "INSERT INTO client (name, email) VALUES ('$name', '$email')");
+}
+
+	
