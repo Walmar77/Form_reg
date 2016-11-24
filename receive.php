@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
 	$result = mysqli_fetch_array($query);
 
 		if($result['email'] == $email) {
-			echo $result['name'] . "E-mail:" . $result['email'];
+			echo "Name: " . $result['name'] . "<br> E-mail: " . $result['email'];
 	}
 	
 }
