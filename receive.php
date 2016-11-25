@@ -3,6 +3,10 @@ error_reporting (E_ALL);
 
 include 'db.php';
 
+if(empty($_POST['name']) || empty($_POST['email'])) {
+	echo "Fill in the fields, please!";
+} else {
+
 if(isset($_POST['email'])) {
 	$name = strip_tags(trim($_POST['name']));
 	$email = strip_tags(trim($_POST['email']));
@@ -19,4 +23,4 @@ if(isset($_POST['email'])) {
 		}
 	}
 
-	
+	}
