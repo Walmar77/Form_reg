@@ -12,13 +12,10 @@ if(isset($_POST['email'])) {
 
 		if($result['email'] == $email) 
 			echo "Name: " . $result['name'] . "<br> E-mail: " . $result['email'];
-	
-	
- else {
 
-	mysqli_query($dbhandle, "INSERT INTO client (name, email) VALUES ('$name', '$email')");
-		die("<h4>Your data accepted!</h4>");
-	
+ 			else {
+				mysqli_query($dbhandle, "INSERT INTO client (name, email) VALUES ('$name', '$email')");
+					die("<h4>Your data accepted!</h4>");
 		}
 	}
 
